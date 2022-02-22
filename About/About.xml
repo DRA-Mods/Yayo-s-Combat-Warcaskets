@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>Dra.YayoCombatWarcaskets</packageId>
+  <name>Yayo's Combat Warcaskets</name>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <author>Sokyran, Hush</author>
+  <description>
+Do you like my mods? You can support me on Ko-Fi: https://ko-fi.com/sokyran
+
+This mod patches Yayo's Combat to properly handle Warcaskets from Vanilla Factions Expanded - Pirates. No longer are the days of paper armor caskets!
+
+There's an option to modify how strong or weak the Warcaskets are going to be to tailor your experience.
+
+On top of that, this mod fixes Yayo's Combat with Bulletproof power from Vanilla Factions Expanded - Ancients. The fix can be toggle on or off.
+  </description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases</downloadUrl>
+    </li>
+    <li>
+      <packageId>com.yayo.combat3</packageId>
+      <displayName>Yayo's Combat 3</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2513695736</steamWorkshopUrl>
+      <downloadUrl>https://github.com/Ogliss/Yayos-Combat-3/releases</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>brrainz.harmony</li>
+    <li>com.yayo.combat3</li>
+    <li>oskarpotocki.vfe.pirates</li>
+    <li>vanillaexpanded.vfea</li>
+  </loadAfter>
+</ModMetaData>
