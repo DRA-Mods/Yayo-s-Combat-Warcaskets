@@ -18,8 +18,10 @@ namespace YayoCombatWarcaskets
             settings = GetSettings<YayoCombatWarcasketsSettings>();
 
             Harmony.PatchAll();
+            if (!Mathf.Approximately(settings.warcasketSpawnCostPercent, 1f))
+                HarmonyManualPatches.ToggleWarcasketPointChange();
             if (settings.patchBulletproof)
-                HarmonyManualPatches.ToggleBulletproof(Harmony);
+                HarmonyManualPatches.ToggleBulletproof();
 
             var hasYayo = false;
             var hasVfe = false;

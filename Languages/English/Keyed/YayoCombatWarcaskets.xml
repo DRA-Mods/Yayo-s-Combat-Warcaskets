@@ -12,6 +12,9 @@
   <WarcasketArmorStrengthAlphaPoly>Alpha Poly Warcaskets</WarcasketArmorStrengthAlphaPoly>
   <WarcasketArmorStrengthBetaPoly>Beta Poly Warcaskets</WarcasketArmorStrengthBetaPoly>
 
+  <WarcasketArmorSpawnCost>Warcasket raid spawn cost:</WarcasketArmorSpawnCost>
+  <WarcasketArmorMoreIsLess>(More means less Warcaskets)</WarcasketArmorMoreIsLess>
+
   <WarcasketPatchBulletproof>Fix Bulletproof power</WarcasketPatchBulletproof>
   <WarcasketPatchBulletproofTooltip>If Vanilla Factions Expanded - Ancients is enabled, it makes the Bulletproof power work properly.</WarcasketPatchBulletproofTooltip>
 </LanguageData>
