@@ -30,16 +30,14 @@ namespace YayoCombatWarcaskets
                 <= 0.0f => "WarcasketArmorStrengthAir",
                 <= 0.2f => "WarcasketArmorStrengthPaper",
                 <= 0.5f => "WarcasketArmorStrengthWood",
-                <= 0.7f => "WarcasketArmorStrengthSteel",
-                <= 1.0f => "WarcasketArmorStrengthSkySteel",
-                <= 2.0f => "WarcasketArmorStrengthPlasteel",
-                <= 3.0f => "WarcasketArmorStrengthArchotech",
-                <= 4.0f => "WarcasketArmorStrengthAlphaPoly",
-                _ => "WarcasketArmorStrengthBetaPoly",
+                <= 1.0f => "WarcasketArmorStrengthSteel",
+                <= 1.5f => "WarcasketArmorStrengthSkySteel",
+                <= 1.9f => "WarcasketArmorStrengthPlasteel",
+                _ => "WarcasketArmorStrengthArchotech",
             };
             listing.Label($"{"WarcasketArmorStrength".Translate()} {forcedWarcasketDurabilityPercent * 100:f0}%");
             listing.Label(text.Translate());
-            forcedWarcasketDurabilityPercent = GenMath.RoundTo(listing.Slider(forcedWarcasketDurabilityPercent, 0f, 5f), 0.05f);
+            forcedWarcasketDurabilityPercent = GenMath.RoundTo(listing.Slider(forcedWarcasketDurabilityPercent, 0f, 2f), 0.05f);
 
             listing.Label($"{"WarcasketArmorSpawnCost".Translate()} {warcasketSpawnCostPercent * 100:f0}%");
             listing.Label("WarcasketArmorMoreIsLess".Translate());
