@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
 using Verse;
@@ -24,28 +23,44 @@ namespace YayoCombatWarcaskets
                 HarmonyManualPatches.ToggleBulletproof();
 
             var hasYayo = false;
-            var hasVfe = false;
+            var hasVfeAncients = false;
+            var hasVfePirates = false;
+            var foundMods = 0;
+            const int maxMods = 3;
 
             foreach (var mod in LoadedModManager.RunningMods)
             {
                 var id = mod.PackageId.ToLower().NoModIdSuffix();
 
-                if (!hasYayo && id is "com.yayo.combat3")
+                if (!hasYayo && id is "com.yayo.combat3" or "mlie.yayoscombat3")
                 {
                     hasYayo = true;
-                    if (hasVfe) break;
+                    if (++foundMods == maxMods) break;
                 }
-                else if (!hasVfe && id is "oskarpotocki.vfe.pirates" or "vanillaexpanded.vfea")
+                else if (!hasVfeAncients && id is "vanillaexpanded.vfea")
                 {
-                    hasVfe = true;
-                    if (hasYayo) break;
+                    hasVfeAncients = true;
+                    if (++foundMods == maxMods) break;
+                }
+                else if (!hasVfePirates && id is "oskarpotocki.vfe.pirates")
+                {
+                    hasVfePirates = true;
+                    if (++foundMods == maxMods) break;
                 }
             }
 
-            if (!hasYayo)
-                Log.Error("[Yayo's Combat Warcaskets] - no Yayo's Combat is running, having this mod enabled is pointless.");
-            else if (!hasVfe)
-                Log.Error("[Yayo's Combat Warcaskets] - no supported mod is running, having this mod enabled is pointless.");
+            switch (hasYayo, hasVfeAncients, hasVfePirates)
+            {
+                case (false, _, true):
+                    Log.Warning("[Yayo's Combat Warcaskets] - no Yayo's Combat is running, having this mod enabled is pointless unless you're changing warcasket raid point cost.");
+                    break;
+                case (false, _, _):
+                    Log.Error("[Yayo's Combat Warcaskets] - no Yayo's Combat is running, having this mod enabled is pointless.");
+                    break;
+                case (true, false, false):
+                    Log.Error("[Yayo's Combat Warcaskets] - no supported VFE mod is running, having this mod enabled is pointless.");
+                    break;
+            }
         }
 
         public override void DoSettingsWindowContents(Rect inRect) => settings.DoSettingsWindowContents(inRect);
