@@ -22,8 +22,10 @@
   <ItemGroup>
     <None Remove=".editorconfig" />
     <None Remove="mono_crash.*.json" />
-    <None Include="..\..\About\**" LinkBase="About" />
-    <None Include="..\..\Languages\**" LinkBase="Languages" />
+    <None Include="..\..\About\**" LinkBase="Common\About" />
+    <None Include="..\..\Defs\**" LinkBase="Common\Defs" />
+    <None Include="..\..\Languages\**" LinkBase="Common\Languages" />
+    <None Include="..\..\Patches\**" LinkBase="Common\Patches" />
   </ItemGroup>
 
   <ItemGroup>
