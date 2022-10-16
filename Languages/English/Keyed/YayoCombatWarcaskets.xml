@@ -15,4 +15,7 @@
 
   <WarcasketPatchBulletproof>Fix Bulletproof power</WarcasketPatchBulletproof>
   <WarcasketPatchBulletproofTooltip>If Vanilla Factions Expanded - Ancients is enabled, it makes the Bulletproof power work properly.</WarcasketPatchBulletproofTooltip>
+  
+  <WarcasketPatchBioticWarp>Fix Biotic Warm</WarcasketPatchBioticWarp>
+  <WarcasketPatchBioticWarpTooltip>If Rim-Effect: Asari and Reapers is enabled, it makes the Biotic Warp work properly and reduce the target's armor.</WarcasketPatchBioticWarpTooltip>
 </LanguageData>

@@ -21,12 +21,15 @@ namespace YayoCombatWarcaskets
                 HarmonyManualPatches.ToggleWarcasketPointChange();
             if (settings.patchBulletproof)
                 HarmonyManualPatches.ToggleBulletproof();
+            if (settings.patchBioticWarp)
+                HarmonyManualPatches.ToggleBioticWarp();
 
             var hasYayo = false;
             var hasVfeAncients = false;
             var hasVfePirates = false;
+            var hasRimEffect = false;
             var foundMods = 0;
-            const int maxMods = 3;
+            const int maxMods = 4;
 
             foreach (var mod in LoadedModManager.RunningMods)
             {
@@ -47,17 +50,24 @@ namespace YayoCombatWarcaskets
                     hasVfePirates = true;
                     if (++foundMods == maxMods) break;
                 }
+                else if (!hasRimEffect && id is "rimeffect.core")
+                {
+                    hasRimEffect = true;
+                    if (++foundMods == maxMods) break;
+                }
             }
 
-            switch (hasYayo, hasVfeAncients, hasVfePirates)
+            switch (hasYayo, hasVfeAncients, hasVfePirates, hasRimEffectAsari: hasRimEffect)
             {
-                case (false, _, true):
+                case (_, _, _, true):
+                    break;
+                case (false, _, true, _):
                     Log.Warning("[Yayo's Combat Warcaskets] - no Yayo's Combat is running, having this mod enabled is pointless unless you're changing warcasket raid point cost.");
                     break;
-                case (false, _, _):
+                case (false, _, _, _):
                     Log.Error("[Yayo's Combat Warcaskets] - no Yayo's Combat is running, having this mod enabled is pointless.");
                     break;
-                case (true, false, false):
+                case (true, false, false, false):
                     Log.Error("[Yayo's Combat Warcaskets] - no supported VFE mod is running, having this mod enabled is pointless.");
                     break;
             }

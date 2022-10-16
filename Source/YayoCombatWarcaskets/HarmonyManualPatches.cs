@@ -8,6 +8,7 @@ namespace YayoCombatWarcaskets
     {
         public static bool WarcasketCostInitialized { get; private set; } = false;
         public static bool BulletproofInitialized { get; private set; } = false;
+        public static bool BioticWarpInitialized { get; private set; } = false;
 
         public static void ToggleWarcasketPointChange()
         {
@@ -36,9 +37,27 @@ namespace YayoCombatWarcaskets
             if (BulletproofInitialized)
                 YayoCombatWarcasketsMod.Harmony.Unpatch(targetMethod, changeType);
             else
-                YayoCombatWarcasketsMod.Harmony.Patch(targetMethod, postfix: new HarmonyMethod(changeType));
+                YayoCombatWarcasketsMod.Harmony.Patch(targetMethod, prefix: new HarmonyMethod(changeType));
 
             BulletproofInitialized = !BulletproofInitialized;
+        }
+
+        public static void ToggleBioticWarp()
+        {
+            var type = AccessTools.TypeByName("yayoCombat.ArmorUtility");
+            var targetMethod = AccessTools.Method(type, "ApplyArmor");
+
+            type = AccessTools.TypeByName("RimEffectAsari.ApplyArmor_Patch");
+            var armorPatch = AccessTools.Method(type, "Prefix");
+
+            if (targetMethod == null || armorPatch == null) return;
+
+            if (BioticWarpInitialized)
+                YayoCombatWarcasketsMod.Harmony.Unpatch(targetMethod, armorPatch);
+            else
+                YayoCombatWarcasketsMod.Harmony.Patch(targetMethod, prefix: new HarmonyMethod(armorPatch));
+
+            BioticWarpInitialized = !BioticWarpInitialized;
         }
 
         private static void PostCostCalculation(PawnKindDef ___kind, ref float __result)
