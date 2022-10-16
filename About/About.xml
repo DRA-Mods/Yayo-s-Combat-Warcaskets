@@ -13,7 +13,9 @@ This mod patches Yayo's Combat to properly handle Warcaskets from Vanilla Factio
 
 There's an option to modify how strong or weak the Warcaskets are going to be to tailor your experience, as well as an option to make Warcaskets more or less common during raids.
 
-On top of that, this mod fixes Yayo's Combat with Bulletproof power from Vanilla Factions Expanded - Ancients. The fix can be toggle on or off.
+On top of that, this mod fixes Yayo's Combat with Bulletproof power from Vanilla Factions Expanded - Ancients, as well as Biotic Warp from Rim-Effect: Asari and Reapers. Those fixes can be toggle on or off.
+
+And finally, this mod fixes a couple abilities from Rim-Effect mods: Tactical Cloak, Adrenaline Rush, Combat Mastery, Biotic Pull, Biotic Stasis, Biotic Warp, Biotic Charm, and Dark Channel.
   </description>
   <modDependencies>
     <li>
