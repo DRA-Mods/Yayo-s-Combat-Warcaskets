@@ -30,5 +30,7 @@ On top of that, this mod fixes Yayo's Combat with Bulletproof power from Vanilla
     <li>Mlie.YayosCombat3</li>
     <li>oskarpotocki.vfe.pirates</li>
     <li>vanillaexpanded.vfea</li>
+    <li>RimEffect.Core</li>
+    <li>RimEffect.AsariReapers</li>
   </loadAfter>
 </ModMetaData>
