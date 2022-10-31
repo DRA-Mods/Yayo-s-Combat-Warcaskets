@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
   <Excluded>
-    <exclude>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\YayoCombatWarcaskets\Source\.vs</exclude>
-    <exclude>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\YayoCombatWarcaskets\Source\YayoCombatWarcaskets\obj</exclude>
+    <exclude>.git</exclude>
+    <exclude>.idea</exclude>
+    <exclude>.vs</exclude>
+    <exclude>Source\.vs</exclude>
+    <exclude>Source\YayoCombatWarcaskets\.vs</exclude>
+    <exclude>Source\YayoCombatWarcaskets\obj</exclude>
   </Excluded>
 </Configuration>
