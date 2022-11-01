@@ -10,13 +10,15 @@
   <description>
 Do you like my mods? You can support me on Ko-Fi: https://ko-fi.com/sokyran
 
-This mod patches Yayo's Combat to properly handle Warcaskets from Vanilla Factions Expanded - Pirates. No longer are the days of paper armor caskets!
+This mod applies several patches for (mostly) Yayo's Combat to make other mods work with it properly. Patches included:
 
-There's an option to modify how strong or weak the Warcaskets are going to be to tailor your experience, as well as an option to make Warcaskets more or less common during raids.
-
-On top of that, this mod fixes Yayo's Combat with Bulletproof power from Vanilla Factions Expanded - Ancients, as well as Biotic Warp from Rim-Effect: Asari and Reapers. Those fixes can be toggle on or off.
-
-And finally, this mod fixes a couple abilities from Rim-Effect mods: Tactical Cloak, Adrenaline Rush, Combat Mastery, Biotic Pull, Biotic Stasis, Biotic Warp, Biotic Charm, and Dark Channel.
+- Warcaskets from Vanilla Factions Expanded - Pirates. No longer are the days of paper armor caskets!
+- Shields from Vanilla Expanded Framework, added by many mods. They now actually do something when used!
+- Bulletproof power from Vanilla Factions Expanded - Ancients. It'll properly change the injury type now.
+- Biotic Warp from Rim-Effect: Asari and Reapers. It's going to reduce armor as intended while active.
+- Option to modify how strong or weak the Warcaskets are going to be to tailor your experience.
+- Option to make Warcaskets more or less common during raids. Also work without Yayo's Combat.
+- (1.3 only) A couple of abilities from Rim-Effect mods that didn't apply their correct effect: Tactical Cloak, Adrenaline Rush, Combat Mastery, Biotic Pull, Biotic Stasis, Biotic Warp, Biotic Charm, and Dark Channel. Also work without Yayo's Combat.
   </description>
   <modDependencies>
     <li>
