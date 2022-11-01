@@ -11,6 +11,8 @@ namespace YayoCombatWarcaskets
         public bool patchBulletproof = true;
         public bool patchBioticWarp = true;
 
+        public bool debugMode = false;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -19,6 +21,7 @@ namespace YayoCombatWarcaskets
             Scribe_Values.Look(ref warcasketSpawnCostPercent, nameof(warcasketSpawnCostPercent), 1f);
             Scribe_Values.Look(ref patchBulletproof, nameof(patchBulletproof), true);
             Scribe_Values.Look(ref patchBioticWarp, nameof(patchBioticWarp), true);
+            Scribe_Values.Look(ref debugMode, nameof(debugMode), false);
         }
 
         public void DoSettingsWindowContents(Rect inRect)
@@ -61,6 +64,8 @@ namespace YayoCombatWarcaskets
             listing.CheckboxLabeled("WarcasketPatchBioticWarp".Translate(), ref patchBioticWarp, "WarcasketPatchBioticWarpTooltip".Translate());
             if (temp != patchBioticWarp)
                 HarmonyManualPatches.ToggleBioticWarp();
+            
+            listing.CheckboxLabeled("WarcasketDebugMode".Translate(), ref debugMode, "WarcasketDebugModeTooltip".Translate());
 
             listing.End();
         }

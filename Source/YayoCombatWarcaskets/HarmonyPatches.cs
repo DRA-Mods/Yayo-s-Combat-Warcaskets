@@ -42,7 +42,8 @@ namespace YayoCombatWarcaskets
                     {
                         ci.opcode = OpCodes.Call;
                         ci.operand = replacement;
-                        Log.Message("[Yayo's Combat Warcaskets] - Found method to patch, patching warcasket durability check");
+                        if (YayoCombatWarcasketsMod.settings.debugMode)
+                            Log.Message("[Yayo's Combat Warcaskets] - Found method to patch, patching warcasket durability check");
                     }
 
                     yield return ci;
@@ -87,7 +88,8 @@ namespace YayoCombatWarcaskets
 
                     if (!isPatched && ci.opcode == OpCodes.Stloc_S && ci.operand is LocalBuilder { LocalIndex: 6 })
                     {
-                        Log.Message("[Yayo's Combat Warcaskets] - Found method to patch, patching VFE shields (part 1)");
+                        if (YayoCombatWarcasketsMod.settings.debugMode)
+                            Log.Message("[Yayo's Combat Warcaskets] - Found method to patch, patching VFE shields (part 1)");
                         isPatched = true;
 
                         var shieldUtilityType = AccessTools.TypeByName("VFECore.ShieldUtility");
@@ -153,7 +155,8 @@ namespace YayoCombatWarcaskets
 
                     if (!isPatched && ci.opcode == OpCodes.Ldarg_S && ci.operand is (byte)6)
                     {
-                        Log.Message("[Yayo's Combat Warcaskets] - Found method to patch, patching VFE shields (part 2)");
+                        if (YayoCombatWarcasketsMod.settings.debugMode)
+                            Log.Message("[Yayo's Combat Warcaskets] - Found method to patch, patching VFE shields (part 2)");
                         isPatched = true;
 
                         var type = AccessTools.TypeByName("VFECore.Patch_ArmorUtility");
