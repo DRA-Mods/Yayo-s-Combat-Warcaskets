@@ -25,7 +25,7 @@ namespace YayoCombatWarcaskets
                 HarmonyManualPatches.ToggleBioticWarp();
 
             var hasYayo = false;
-            var hasVfeAncients = false;
+            var hasVfeCore = false;
             var hasVfePirates = false;
             var hasRimEffect = false;
             var foundMods = 0;
@@ -40,9 +40,9 @@ namespace YayoCombatWarcaskets
                     hasYayo = true;
                     if (++foundMods == maxMods) break;
                 }
-                else if (!hasVfeAncients && id is "vanillaexpanded.vfea")
+                else if (!hasVfeCore && id is "oskarpotocki.vanillafactionsexpanded.core")
                 {
-                    hasVfeAncients = true;
+                    hasVfeCore = true;
                     if (++foundMods == maxMods) break;
                 }
                 else if (!hasVfePirates && id is "oskarpotocki.vfe.pirates")
@@ -57,7 +57,7 @@ namespace YayoCombatWarcaskets
                 }
             }
 
-            switch (hasYayo, hasVfeAncients, hasVfePirates, hasRimEffectAsari: hasRimEffect)
+            switch (hasYayo, hasVfeCore, hasVfePirates, hasRimEffect)
             {
                 case (_, _, _, true):
                     break;
