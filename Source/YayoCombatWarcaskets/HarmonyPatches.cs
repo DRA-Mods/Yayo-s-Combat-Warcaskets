@@ -183,5 +183,48 @@ namespace YayoCombatWarcaskets
                 }
             }
         }
+
+        [HarmonyPatch]
+        private static class PatchNoVerbDrawing
+        {
+            [UsedImplicitly]
+            private static bool Prepare()
+                => AccessTools.TypeByName("yayoCombat.PawnRenderer_override") != null;
+
+            [UsedImplicitly]
+            private static MethodBase TargetMethod()
+                => AccessTools.Method("yayoCombat.PawnRenderer_override:animateEquip");
+
+            [UsedImplicitly]
+            private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var target = AccessTools.DeclaredPropertyGetter(typeof(LocalTargetInfo), nameof(LocalTargetInfo.IsValid));
+                var field = AccessTools.DeclaredField(typeof(Stance_Busy), nameof(Stance_Busy.verb));
+                var finished = false;
+                var captureNext = false;
+
+                foreach (var ci in instructions)
+                {
+                    yield return ci;
+                    
+                    if (finished)
+                        continue;
+
+                    if (captureNext)
+                    {
+                        finished = true;
+                        captureNext = false;
+
+                        yield return new CodeInstruction(OpCodes.Ldarg_S, (byte)5);
+                        yield return new CodeInstruction(OpCodes.Ldfld, field);
+                        yield return new CodeInstruction(OpCodes.Brfalse, ci.operand);
+                    }
+                    else if (ci.opcode == OpCodes.Call && ci.operand is MethodInfo method && method == target)
+                    {
+                        captureNext = true;
+                    }
+                }
+            }
+        }
     }
 }
