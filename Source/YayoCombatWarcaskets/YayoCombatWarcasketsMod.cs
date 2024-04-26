@@ -28,33 +28,19 @@ namespace YayoCombatWarcaskets
             var hasVfeCore = false;
             var hasVfePirates = false;
             var hasRimEffect = false;
-            var foundMods = 0;
-            const int maxMods = 4;
 
             foreach (var mod in LoadedModManager.RunningMods)
             {
                 var id = mod.PackageId.ToLower().NoModIdSuffix();
 
                 if (!hasYayo && id is "com.yayo.combat3" or "mlie.yayoscombat3")
-                {
                     hasYayo = true;
-                    if (++foundMods == maxMods) break;
-                }
                 else if (!hasVfeCore && id is "oskarpotocki.vanillafactionsexpanded.core")
-                {
                     hasVfeCore = true;
-                    if (++foundMods == maxMods) break;
-                }
                 else if (!hasVfePirates && id is "oskarpotocki.vfe.pirates")
-                {
                     hasVfePirates = true;
-                    if (++foundMods == maxMods) break;
-                }
                 else if (!hasRimEffect && id is "rimeffect.core")
-                {
                     hasRimEffect = true;
-                    if (++foundMods == maxMods) break;
-                }
             }
 
             switch (hasYayo, hasVfeCore, hasVfePirates, hasRimEffect)
